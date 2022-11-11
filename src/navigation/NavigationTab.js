@@ -40,8 +40,8 @@ const NavigationTab = () => {
               style={tabIconStyles}
               source={
                 focused
-                  ? require('../assets/icons/Home_Fill.png')
-                  : require('../assets/icons/Home_Line.png')
+                  ? require('../assets/icons/home-active.png')
+                  : require('../assets/icons/home-inactive.png')
               }
             />
           ),
@@ -57,8 +57,8 @@ const NavigationTab = () => {
               style={tabIconStyles}
               source={
                 focused
-                  ? require('../assets/icons/Bus_Fill.png')
-                  : require('../assets/icons/Bus_Line.png')
+                  ? require('../assets/icons/front-bus-active.png')
+                  : require('../assets/icons/front-bus-inactive.png')
               }
             />
           ),
@@ -75,8 +75,8 @@ const NavigationTab = () => {
               style={tabIconStyles}
               source={
                 focused
-                  ? require('../assets/icons/User_Fill.png')
-                  : require('../assets/icons/User_Line.png')
+                  ? require('../assets/icons/user-active.png')
+                  : require('../assets/icons/user-inactive.png')
               }
             />
           ),
