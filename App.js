@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Text, Stylesheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import NavigationTab from './src/navigation/NavigationTab';
 
 const App = () => {
   return (
-    <View>
-      <Text>Hola React Native</Text>
-    </View>
+    <NavigationContainer>
+      <NavigationTab />
+    </NavigationContainer>
   );
 };
 
