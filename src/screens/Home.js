@@ -1,13 +1,8 @@
 import React, {useState} from 'react';
-import {
-  Image,
-  Pressable,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, Pressable, StatusBar, Text, View} from 'react-native';
+import StopItem from '../components/StopItem';
 import globalStyles from '../styles/globalStyles';
+import tabBarStyles from '../styles/tabBarStyles';
 import homeStyles from '../styles/homeStyles';
 
 const Home = () => {
@@ -30,11 +25,13 @@ const Home = () => {
   const stops = [
     {
       name: 'Tecnológico de Morelia',
-      distance: 5,
+      distanceInTime: 5,
+      distanceInKm: 5,
     },
     {
       name: 'Psicología',
-      distance: 12,
+      distanceInTime: 12,
+      distanceInKm: 12,
     },
   ];
 
@@ -44,20 +41,20 @@ const Home = () => {
       <StatusBar backgroundColor="white" barStyle="dark-content" />
 
       {/* TabBar */}
-      <View style={homeStyles.tabBar}>
+      <View style={tabBarStyles.tabBar}>
         <Pressable
           style={
             activeTab
-              ? [homeStyles.tabBarBtn, homeStyles.tabBarBtnActive]
-              : homeStyles.tabBarBtn
+              ? [tabBarStyles.tabBarBtn, tabBarStyles.tabBarBtnActive]
+              : tabBarStyles.tabBarBtn
           }
           onPressIn={handleTabToggle}
           disabled={activeTab}>
           <Text
             style={
               activeTab
-                ? homeStyles.tabBarTxt
-                : [homeStyles.tabBarTxt, homeStyles.tabBarTxtInactive]
+                ? tabBarStyles.tabBarTxt
+                : [tabBarStyles.tabBarTxt, tabBarStyles.tabBarTxtInactive]
             }>
             Ida
           </Text>
@@ -65,16 +62,16 @@ const Home = () => {
         <Pressable
           style={
             activeTab
-              ? homeStyles.tabBarBtn
-              : [homeStyles.tabBarBtn, homeStyles.tabBarBtnActive]
+              ? tabBarStyles.tabBarBtn
+              : [tabBarStyles.tabBarBtn, tabBarStyles.tabBarBtnActive]
           }
           onPressIn={handleTabToggle}
           disabled={!activeTab}>
           <Text
             style={
               activeTab
-                ? [homeStyles.tabBarTxt, homeStyles.tabBarTxtInactive]
-                : homeStyles.tabBarTxt
+                ? [tabBarStyles.tabBarTxt, tabBarStyles.tabBarTxtInactive]
+                : tabBarStyles.tabBarTxt
             }>
             Regreso
           </Text>
@@ -155,24 +152,12 @@ const Home = () => {
 
         <View style={homeStyles.stops}>
           {stops.map(stop => (
-            <TouchableOpacity style={homeStyles.stopItem}>
-              <View style={homeStyles.stopInfo}>
-                <Image
-                  style={homeStyles.stopIcon}
-                  source={require('../assets/icons/map-area.png')}
-                />
-                <View style={homeStyles.stopLocationDistance}>
-                  <Text style={globalStyles.textRegular}>{stop.name}</Text>
-                  <Text style={globalStyles.textSmall}>
-                    Más cerca • {stop.distance} min de distancia
-                  </Text>
-                </View>
-              </View>
-              <Image
-                style={homeStyles.seeStop}
-                source={require('../assets/icons/chevron.png')}
-              />
-            </TouchableOpacity>
+            <StopItem
+              key={stop.name}
+              name={stop.name}
+              distanceInTime={stop.distanceInTime}
+              distanceInKm={stop.distanceInKm}
+            />
           ))}
         </View>
       </View>

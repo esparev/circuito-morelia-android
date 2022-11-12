@@ -1,33 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 const homeStyles = StyleSheet.create({
-  tabBar: {
-    width: '100%',
-    height: 48,
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-  },
-  tabBarBtn: {
-    height: 48,
-    width: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomColor: '#FFFFFF',
-    borderBottomWidth: 2,
-  },
-  tabBarTxt: {
-    fontFamily: 'Inter-Regular',
-    fontSize: 15,
-    textTransform: 'uppercase',
-    color: '#222227',
-  },
-  tabBarBtnActive: {
-    borderBottomColor: '#222227',
-    borderBottomWidth: 2,
-  },
-  tabBarTxtInactive: {
-    color: '#737373',
-  },
   mapContainer: {
     margin: 20,
   },
@@ -86,31 +59,6 @@ const homeStyles = StyleSheet.create({
   seeMoreIcon: {
     width: 20,
     height: 20,
-  },
-  stops: {},
-  stopItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: 4,
-    paddingBottom: 4,
-    marginBottom: 4,
-    borderBottomColor: '#737373',
-    borderBottomWidth: 0.5,
-  },
-  stopInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  stopIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 12,
-  },
-  stopLocationDistance: {},
-  seeStop: {
-    width: 32,
-    height: 32,
   },
 });
 
