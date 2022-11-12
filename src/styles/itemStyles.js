@@ -21,7 +21,9 @@ const itemStyles = StyleSheet.create({
     height: 40,
     marginRight: 12,
   },
-  entityLocationDistance: {},
+  entityLocationDistance: {
+    width: '80%',
+  },
   seeEntity: {
     width: 32,
     height: 32,

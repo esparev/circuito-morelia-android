@@ -18,7 +18,7 @@ const Profile = () => {
             source={require('../assets/icons/edit.png')}
           />
         </Pressable>
-        <View>
+        <View style={profileStyles.name}>
           <Text style={globalStyles.h1}>Oscar Isaac Hernández Estrada</Text>
         </View>
       </View>

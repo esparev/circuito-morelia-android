@@ -6,6 +6,7 @@ const profileStyles = StyleSheet.create({
     padding: 20,
   },
   profile: {
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -15,8 +16,12 @@ const profileStyles = StyleSheet.create({
     borderBottomWidth: 0.5,
   },
   image: {
+    width: '20%',
     marginRight: 12,
     marginBottom: 12,
+  },
+  name: {
+    width: '80%',
   },
   profileImg: {
     position: 'relative',
