@@ -23,8 +23,8 @@ const NavigationTab = () => {
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        labelStyle: {
+      screenOptions={{
+        tabBarLabelStyle: {
           fontFamily: 'Inter-Regular',
           fontSize: 13,
         },
