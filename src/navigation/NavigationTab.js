@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from '../screens/Home';
-import Stops from '../screens/Stops';
+import {HomeStackNavigator} from './StackNavigator';
+import Units from '../screens/Units';
 import Profile from '../screens/Profile';
 import {Image} from 'react-native';
 
@@ -31,7 +31,7 @@ const NavigationTab = () => {
       }}>
       <Tab.Screen
         name="Inicio"
-        component={Home}
+        component={HomeStackNavigator}
         options={{
           ...tabBarOptions,
           headerShown: false,
@@ -48,8 +48,8 @@ const NavigationTab = () => {
         }}
       />
       <Tab.Screen
-        name="Paradas"
-        component={Stops}
+        name="Unidades"
+        component={Units}
         options={{
           ...tabBarOptions,
           tabBarIcon: ({focused}) => (

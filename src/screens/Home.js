@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 import {Image, Pressable, StatusBar, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import StopItem from '../components/StopItem';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
 import homeStyles from '../styles/homeStyles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState(true);
   const [activeChip1, setActiveChip1] = useState(false);
   const [activeChip2, setActiveChip2] = useState(false);
+
+  const navigation = useNavigation();
 
   const handleTabToggle = () => {
     setActiveTab(!activeTab);
@@ -141,13 +145,17 @@ const Home = () => {
       <View style={homeStyles.closeStops}>
         <View style={homeStyles.stopsHeader}>
           <Text style={globalStyles.h2}>Paradas cercanas a ti</Text>
-          <Pressable style={homeStyles.seeMoreBtn}>
+          <TouchableOpacity
+            style={homeStyles.seeMoreBtn}
+            onPress={() => {
+              navigation.navigate('Paradas');
+            }}>
             <Text style={homeStyles.seeMoreTxt}>Ver más</Text>
             <Image
               style={homeStyles.seeMoreIcon}
               source={require('../assets/icons/chevron.png')}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
         <View style={homeStyles.stops}>
