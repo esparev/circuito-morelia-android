@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Circuito Morelia</string>
+    <string name="launch_screen">launch_screen</string>
 </resources>

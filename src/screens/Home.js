@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, Pressable, StatusBar, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import StopItem from '../components/StopItem';
 import globalStyles from '../styles/globalStyles';
@@ -41,8 +41,6 @@ const Home = () => {
 
   return (
     <View style={globalStyles.body}>
-      {/* StatusBar */}
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
 
       {/* TabBar */}
       <View style={tabBarStyles.tabBar}>
