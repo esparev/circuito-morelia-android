@@ -1,6 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeStackNavigator} from './StackNavigator';
+import {UnitsStackNavigator} from './StackNavigator';
 import Units from '../screens/Units';
 import Profile from '../screens/Profile';
 import {Image} from 'react-native';
@@ -49,7 +50,7 @@ const NavigationTab = () => {
       />
       <Tab.Screen
         name="Unidades"
-        component={Units}
+        component={UnitsStackNavigator}
         options={{
           ...tabBarOptions,
           tabBarIcon: ({focused}) => (
