@@ -1,18 +1,35 @@
-import React, {useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Pressable, Text, View, ScrollView} from 'react-native';
 import StopItem from '../components/StopItem';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
 import stopsStyles from '../styles/stopsStyles';
+import {getStopsApi} from '../api/stops';
 
 const Stops = () => {
   const [activeTab, setActiveTab] = useState(true);
+  const [stops, setStops] = useState([]);
 
   const handleTabToggle = () => {
     setActiveTab(!activeTab);
   };
 
-  const stops = [
+  useEffect(() => {
+    (async () => {
+      await loadStops();
+    })();
+  }, []);
+
+  const loadStops = async () => {
+    try {
+      const response = await getStopsApi();
+      setStops([...response]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /*const stops = [
     {
       name: 'Tecnológico de Morelia',
       distanceInTime: 5,
@@ -43,10 +60,10 @@ const Stops = () => {
       distanceInTime: 47,
       distanceInKm: 5,
     },
-  ];
+  ];*/
 
   return (
-    <View style={globalStyles.body}>
+    <ScrollView style={globalStyles.body}>
       {/* TabBar */}
       <View style={tabBarStyles.tabBar}>
         <Pressable
@@ -88,14 +105,14 @@ const Stops = () => {
       <View style={stopsStyles.stops}>
         {stops.map(stop => (
           <StopItem
-            key={stop.name}
+            key={stop.id}
             name={stop.name}
-            distanceInTime={stop.distanceInTime}
-            distanceInKm={stop.distanceInKm}
+            // distanceInTime={stop.distanceInTime}
+            // distanceInKm={stop.distanceInKm}
           />
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
