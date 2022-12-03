@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeStackNavigator} from './StackNavigator';
 import {UnitsStackNavigator} from './StackNavigator';
-import Units from '../screens/Units';
+import {DriversStackNavigator} from './StackNavigator';
 import Profile from '../screens/Profile';
 import {Image} from 'react-native';
 
@@ -49,7 +49,7 @@ const NavigationTab = () => {
         }}
       />
       <Tab.Screen
-        name="Units"
+        name="Unidades"
         component={UnitsStackNavigator}
         options={{
           ...tabBarOptions,
@@ -61,6 +61,24 @@ const NavigationTab = () => {
                 focused
                   ? require('../assets/icons/front-bus-active.png')
                   : require('../assets/icons/front-bus-inactive.png')
+              }
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Conductores"
+        component={DriversStackNavigator}
+        options={{
+          ...tabBarOptions,
+          headerShown: false,
+          tabBarIcon: ({focused}) => (
+            <Image
+              style={tabIconStyles}
+              source={
+                focused
+                  ? require('../assets/icons/steering-wheel-active.png')
+                  : require('../assets/icons/steering-wheel-inactive.png')
               }
             />
           ),
