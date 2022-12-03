@@ -1,8 +1,8 @@
-import {API_HOST} from '../utils/constants';
+import {envConfig} from '../utils/config';
 
 export async function getStopsApi() {
   try {
-    const url = `${API_HOST}/stops`;
+    const url = `${envConfig.apiUrl}/stops`;
     const response = await fetch(url);
     const result = await response.json();
     return result;
