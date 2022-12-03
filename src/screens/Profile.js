@@ -19,17 +19,10 @@ const Profile = () => {
       {/* Profile */}
       <View style={profileStyles.profile}>
         <Pressable style={profileStyles.image}>
-          {auth.image ? (
-            <Image
-              style={profileStyles.profileImg}
-              source={require('../assets/icons/oscar.png')}
-            />
-          ) : (
-            <Image
-              style={profileStyles.profileImg}
-              source={require('../assets/icons/default-profile.png')}
-            />
-          )}
+          <Image
+            style={profileStyles.profileImg}
+            source={require('../assets/icons/default-profile.png')}
+          />
           <Image
             style={profileStyles.editIcon}
             source={require('../assets/icons/edit.png')}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, SafeAreaView} from 'react-native';
+import {Pressable, Image, Text, View, SafeAreaView} from 'react-native';
 // import SinglePageHeader from '@components/SinglePageHeader';
 // import AssignDriverModal from '@components/AssignDriverModal';
 // import EditUnitModal from '@components/EditUnitModal';
@@ -7,21 +7,24 @@ import {Text, View, SafeAreaView} from 'react-native';
 import DriverList from '../components/DriverList';
 import useGetUser from '../hooks/useGetUser';
 import useGetUsers from '../hooks/useGetUsers';
+import useAuth from '../hooks/useAuth';
 import globalStyles from '../styles/globalStyles';
+import buttonStyles from '../styles/buttonStyles';
 import alertStyles from '../styles/alertStyles';
 import entityStyles from '../styles/entityStyles';
 import {envConfig} from '../utils/config';
 
 const Driver = props => {
   const {route} = props;
+  const {auth} = useAuth();
   const driver = useGetUser(envConfig.apiUrl, route.params.slug);
   const users = useGetUsers(envConfig.apiUrl);
   const drivers = users.filter(
-    (otherDriver) =>
+    otherDriver =>
       otherDriver.role !== 'hero' &&
       otherDriver.role !== 'admin' &&
       otherDriver.role !== 'client' &&
-      otherDriver.slug !== driver.slug
+      otherDriver.slug !== driver.slug,
   );
 
   const showAssignModal = () => {
@@ -44,9 +47,6 @@ const Driver = props => {
       <View styles={alertStyles.alert}></View>
 
       {/* <SinglePageHeader
-        title={`Conductor ${driver.slug}`}
-        info={``}
-        entityName="Conductor"
         otherEntityName="Conductor"
         hasExtraButton
         isDriverBtn
@@ -56,9 +56,29 @@ const Driver = props => {
       /> */}
 
       <View style={globalStyles.hero}>
-        <View>
-          <Text style={globalStyles.h2}>{driver.name}</Text>
-          <Text style={globalStyles.textSmall}>{driver.email}</Text>
+        <View style={entityStyles.entityHeader}>
+          <View>
+            <Text style={globalStyles.h2}>{driver.name}</Text>
+            <Text style={globalStyles.textSmall}>{driver.email}</Text>
+          </View>
+          {auth.role === 'hero' || auth.role === 'admin' ? (
+            <View style={buttonStyles.btnsContainer}>
+              <Pressable style={buttonStyles.btnBgBlack}>
+                <Image
+                  style={buttonStyles.btnIcon}
+                  source={require('../assets/icons/pencil.png')}
+                />
+                <Text style={buttonStyles.btnTxt}>Editar</Text>
+              </Pressable>
+              <Pressable style={buttonStyles.btnBgRed}>
+                <Image
+                  style={buttonStyles.btnIcon}
+                  source={require('../assets/icons/trash-bin.png')}
+                />
+                <Text style={buttonStyles.btnTxt}>Eliminar</Text>
+              </Pressable>
+            </View>
+          ) : null}
         </View>
         <View style={entityStyles.moreEntities}>
           <Text style={globalStyles.h3}>Más Conductores</Text>

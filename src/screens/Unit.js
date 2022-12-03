@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, SafeAreaView} from 'react-native';
+import {Pressable, Image, Text, View, SafeAreaView} from 'react-native';
 // import SinglePageHeader from '@components/SinglePageHeader';
 // import AssignDriverModal from '@components/AssignDriverModal';
 // import EditUnitModal from '@components/EditUnitModal';
@@ -7,13 +7,16 @@ import {Text, View, SafeAreaView} from 'react-native';
 import UnitList from '../components/UnitList';
 import useGetUnit from '../hooks/useGetUnit';
 import useGetUnits from '../hooks/useGetUnits';
+import useAuth from '../hooks/useAuth';
 import globalStyles from '../styles/globalStyles';
+import buttonStyles from '../styles/buttonStyles';
 import alertStyles from '../styles/alertStyles';
 import entityStyles from '../styles/entityStyles';
 import {envConfig} from '../utils/config';
 
 const Unit = props => {
   const {route} = props;
+  const {auth} = useAuth();
   const unit = useGetUnit(envConfig.apiUrl, route.params.number);
   const allUnits = useGetUnits(envConfig.apiUrl);
   const units = allUnits.filter(otherUnit => otherUnit.number !== unit.number);
@@ -38,9 +41,7 @@ const Unit = props => {
       <View styles={alertStyles.alert}></View>
 
       {/* <SinglePageHeader
-        title={`Unidad ${unit.number}`}
         info={``}
-        entityName="Unidad"
         otherEntityName="Conductor"
         hasExtraButton
         isDriverBtn
@@ -51,7 +52,29 @@ const Unit = props => {
 
       <View style={globalStyles.hero}>
         <View>
-          <Text style={globalStyles.h2}>Unidad {unit.number}</Text>
+          <View style={entityStyles.entityHeader}>
+            <View>
+              <Text style={globalStyles.h2}>Unidad {unit.number}</Text>
+            </View>
+            {auth.role === 'hero' || auth.role === 'admin' ? (
+              <View style={buttonStyles.btnsContainer}>
+                <Pressable style={buttonStyles.btnBgBlack}>
+                  <Image
+                    style={buttonStyles.btnIcon}
+                    source={require('../assets/icons/pencil.png')}
+                  />
+                  <Text style={buttonStyles.btnTxt}>Editar</Text>
+                </Pressable>
+                <Pressable style={buttonStyles.btnBgRed}>
+                  <Image
+                    style={buttonStyles.btnIcon}
+                    source={require('../assets/icons/trash-bin.png')}
+                  />
+                  <Text style={buttonStyles.btnTxt}>Eliminar</Text>
+                </Pressable>
+              </View>
+            ) : null}
+          </View>
         </View>
         <View style={entityStyles.moreEntities}>
           <Text style={globalStyles.h3}>Más Unidades</Text>

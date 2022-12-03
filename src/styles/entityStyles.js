@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 const entityStyles = StyleSheet.create({
+  entityHeader: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   entityInfoTitle: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 20,
