@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import NavigationTab from './src/navigation/NavigationTab';
+import StackNavigator from './src/navigation/StackNavigator';
 import SplashScreen from 'react-native-splash-screen';
+import {AuthProvider} from './src/context/AuthContext';
 
 const App = () => {
   useEffect(() => {
@@ -14,9 +15,11 @@ const App = () => {
       {/* StatusBar */}
       <StatusBar backgroundColor="white" barStyle="dark-content" />
 
-      <NavigationContainer>
-        <NavigationTab />
-      </NavigationContainer>
+      <AuthProvider>
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>
+      </AuthProvider>
     </>
   );
 };

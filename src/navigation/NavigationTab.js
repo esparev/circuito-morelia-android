@@ -1,14 +1,14 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {HomeStackNavigator} from './StackNavigator';
-import {UnitsStackNavigator} from './StackNavigator';
-import {DriversStackNavigator} from './StackNavigator';
+import Home from '../screens/Home';
+import Units from '../screens/Units';
+import Drivers from '../screens/Drivers';
 import Profile from '../screens/Profile';
 import {Image} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-const NavigationTab = () => {
+export const NavigationTab = () => {
   const tabBarOptions = {
     headerTitleAlign: 'center',
     headerTitleStyle: {fontFamily: 'Inter-Medium', fontSize: 16},
@@ -32,7 +32,7 @@ const NavigationTab = () => {
       }}>
       <Tab.Screen
         name="Inicio"
-        component={HomeStackNavigator}
+        component={Home}
         options={{
           ...tabBarOptions,
           headerShown: false,
@@ -50,7 +50,7 @@ const NavigationTab = () => {
       />
       <Tab.Screen
         name="Unidades"
-        component={UnitsStackNavigator}
+        component={Units}
         options={{
           ...tabBarOptions,
           headerShown: false,
@@ -68,7 +68,7 @@ const NavigationTab = () => {
       />
       <Tab.Screen
         name="Conductores"
-        component={DriversStackNavigator}
+        component={Drivers}
         options={{
           ...tabBarOptions,
           headerShown: false,
@@ -106,4 +106,4 @@ const NavigationTab = () => {
   );
 };
 
-export default NavigationTab;
+// export default NavigationTab;

@@ -1,10 +1,9 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../screens/Home';
+import {NavigationTab} from './NavigationTab';
+import Login from '../screens/Login';
 import Stops from '../screens/Stops';
-import Units from '../screens/Units';
 import Unit from '../screens/Unit';
-import Drivers from '../screens/Drivers';
 import Driver from '../screens/Driver';
 
 const Stack = createStackNavigator();
@@ -13,12 +12,19 @@ const headerTitleOptions = {
   headerTitleStyle: {fontFamily: 'Inter-Bold'},
 };
 
-export const HomeStackNavigator = () => {
+const StackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="Iniciar Sesión"
+        component={Login}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="Home"
-        component={Home}
+        component={NavigationTab}
         options={{headerShown: false}}
       />
       <Stack.Screen
@@ -26,16 +32,9 @@ export const HomeStackNavigator = () => {
         component={Stops}
         options={headerTitleOptions}
       />
-    </Stack.Navigator>
-  );
-};
-
-export const UnitsStackNavigator = () => {
-  return (
-    <Stack.Navigator>
       <Stack.Screen
         name="Unidades"
-        component={Units}
+        component={NavigationTab}
         options={headerTitleOptions}
       />
       <Stack.Screen
@@ -43,16 +42,9 @@ export const UnitsStackNavigator = () => {
         component={Unit}
         options={headerTitleOptions}
       />
-    </Stack.Navigator>
-  );
-};
-
-export const DriversStackNavigator = () => {
-  return (
-    <Stack.Navigator>
       <Stack.Screen
         name="Conductores"
-        component={Drivers}
+        component={NavigationTab}
         options={headerTitleOptions}
       />
       <Stack.Screen
@@ -63,3 +55,5 @@ export const DriversStackNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+export default StackNavigator;
