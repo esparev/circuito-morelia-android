@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const alertStyles = StyleSheet.create({
   alert: {
@@ -17,11 +18,11 @@ const alertStyles = StyleSheet.create({
   //   color: white,
   // },
   alertGreen: {
-    backgroundColor: '#00FF00',
+    backgroundColor: vars.green,
   },
   alertRed: {
-    backgroundColor: '#FF0000',
-  }
+    backgroundColor: vars.red,
+  },
 });
 
 export default alertStyles;

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const profileStyles = StyleSheet.create({
   screen: {
@@ -12,7 +13,7 @@ const profileStyles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 12,
     paddingBottom: 12,
-    borderBottomColor: '#737373',
+    borderBottomColor: vars.gray200,
     borderBottomWidth: 0.5,
   },
   image: {
@@ -50,13 +51,13 @@ const profileStyles = StyleSheet.create({
     justifyContent: 'center',
     margin: 20,
     borderRadius: 8,
-    backgroundColor: '#222227',
+    backgroundColor: vars.black,
   },
   logoutTxt: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
     padding: 8,
-    color: '#FFFFFF',
+    color: vars.white,
   },
   logoutIcon: {
     width: 24,

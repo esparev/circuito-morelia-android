@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const homeStyles = StyleSheet.create({
   mapContainer: {
@@ -13,7 +14,7 @@ const homeStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#CECECE',
+    borderColor: vars.gray100,
     borderRadius: 20,
     paddingTop: 4,
     paddingBottom: 4,
@@ -22,23 +23,23 @@ const homeStyles = StyleSheet.create({
     marginRight: 8,
   },
   filterTxtInactive: {
+    marginLeft: 4,
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    marginLeft: 4,
-    color: '#5A5A5A',
+    color: vars.gray300,
   },
   filterIcon: {
     width: 22,
     height: 22,
   },
   filterChipActive: {
-    backgroundColor: '#222227',
+    backgroundColor: vars.black,
   },
   filterTxtActive: {
+    marginLeft: 4,
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    marginLeft: 4,
-    color: '#FFFFFF',
+    color: vars.white,
   },
   closeStops: {
     margin: 20,
@@ -54,7 +55,7 @@ const homeStyles = StyleSheet.create({
   },
   seeMoreTxt: {
     fontFamily: 'Inter-Medium',
-    color: '#5A5A5A',
+    color: vars.gray300,
   },
   seeMoreIcon: {
     width: 20,

@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const globalStyles = StyleSheet.create({
   body: {
-    backgroundColor: '#FFFFFF',
     height: '100%',
+    backgroundColor: vars.white,
   },
   hero: {
     margin: 20,
@@ -11,27 +12,27 @@ const globalStyles = StyleSheet.create({
   h1: {
     fontFamily: 'Inter-Bold',
     fontSize: 24,
-    color: '#222227',
+    color: vars.black,
   },
   h2: {
     fontFamily: 'Inter-Bold',
     fontSize: 22,
-    color: '#222227',
+    color: vars.black,
   },
   h3: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 18,
-    color: '#222227',
+    color: vars.black,
   },
   textRegular: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: '#222227',
+    color: vars.black,
   },
   textSmall: {
     fontFamily: 'Inter-Regular',
     fontSize: 14,
-    color: '#737373',
+    color: vars.gray200,
   },
 });
 

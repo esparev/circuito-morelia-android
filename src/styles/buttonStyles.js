@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const buttonStyles = StyleSheet.create({
   btnsContainer: {
@@ -11,7 +12,7 @@ const buttonStyles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 4,
     borderRadius: 50,
-    backgroundColor: '#222227',
+    backgroundColor: vars.black,
   },
   btnBgRed: {
     flexDirection: 'row',
@@ -21,7 +22,7 @@ const buttonStyles = StyleSheet.create({
     marginBottom: 4,
     marginLeft: 12,
     borderRadius: 50,
-    backgroundColor: '#EE0000',
+    backgroundColor: vars.red,
   },
   btnIcon: {
     width: 24,
@@ -30,7 +31,7 @@ const buttonStyles = StyleSheet.create({
   },
   btnTxt: {
     fontFamily: 'Inter-Medium',
-    color: '#FFFFFF'
+    color: vars.white,
   },
 });
 

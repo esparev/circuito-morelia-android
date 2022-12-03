@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const entityStyles = StyleSheet.create({
   entityHeader: {
@@ -9,12 +10,12 @@ const entityStyles = StyleSheet.create({
   entityInfoTitle: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 20,
-    color: '#222227',
+    color: vars.black,
   },
   entityTitleH2: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 20,
-    color: '#000',
+    color: vars.black,
   },
   moreEntities: {
     marginTop: 12,

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const loginStyles = StyleSheet.create({
   login: {
@@ -20,12 +21,12 @@ const loginStyles = StyleSheet.create({
   loginTitle: {
     fontFamily: 'Inter-Bold',
     fontSize: 20,
-    color: '#222227',
+    color: vars.black,
   },
   loginTxt: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,
-    color: '#737373',
+    color: vars.gray200,
   },
   loginForm: {
     width: '100%',
@@ -43,17 +44,17 @@ const loginStyles = StyleSheet.create({
     marginBottom: 4,
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
-    color: '#222227',
+    color: vars.black,
   },
   loginFormFieldInput: {
     width: '100%',
     padding: 8,
-    borderColor: '#CECECE',
+    borderColor: vars.gray100,
     borderWidth: 1.5,
     borderRadius: 8,
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: '#222227',
+    color: vars.black,
   },
   // loginFormField--input:focus: {
   //   outline: solid var(--black),
@@ -61,17 +62,17 @@ const loginStyles = StyleSheet.create({
   loginFormFieldErr: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: '#EA0000',
+    color: vars.red,
   },
   loginFormFieldSuccess: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: '#222227',
+    color: vars.black,
   },
   loginFormForgot: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: '#EA0000',
+    color: vars.red,
   },
   loginFormBtn: {
     width: '100%',
@@ -79,13 +80,13 @@ const loginStyles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 12,
     borderRadius: 8,
-    backgroundColor: '#222227',
+    backgroundColor: vars.black,
   },
   loginFormBtnTxt: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
     textAlign: 'center',
-    color: '#FFFFFF',
+    color: vars.white,
   },
   loginCreateAccount: {
     flexDirection: 'row',
@@ -94,12 +95,12 @@ const loginStyles = StyleSheet.create({
     fontFamily: 'Inter-Medium',
     fontSize: 16,
     textAlign: 'right',
-    color: '#5A5A5A',
+    color: vars.gray300,
   },
   loginFormQuestionBtn: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
-    color: '#222227',
+    color: vars.black,
   },
 });
 

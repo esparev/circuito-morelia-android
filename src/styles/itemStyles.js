@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import vars from './vars';
 
 const itemStyles = StyleSheet.create({
   entitys: {},
@@ -9,7 +10,7 @@ const itemStyles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
     marginBottom: 4,
-    borderBottomColor: '#737373',
+    borderBottomColor: vars.gray200,
     borderBottomWidth: 0.5,
   },
   entityInfo: {
