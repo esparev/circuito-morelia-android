@@ -6,28 +6,28 @@ const tabBarStyles = StyleSheet.create({
     width: '100%',
     height: 48,
     flexDirection: 'row',
-    backgroundColor: vars.white,
+    backgroundColor: vars.white.color,
   },
   tabBarBtn: {
     height: 48,
     width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomColor: vars.white,
+    borderBottomColor: vars.white.color,
     borderBottomWidth: 2,
   },
   tabBarTxt: {
     textTransform: 'uppercase',
     fontFamily: 'Inter-Regular',
     fontSize: 15,
-    color: vars.black,
+    color: vars.black.color,
   },
   tabBarBtnActive: {
-    borderBottomColor: vars.black,
+    borderBottomColor: vars.black.color,
     borderBottomWidth: 2,
   },
   tabBarTxtInactive: {
-    color: vars.gray200,
+    color: vars.gray200.color,
   },
 });
 

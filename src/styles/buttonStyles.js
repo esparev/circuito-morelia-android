@@ -12,7 +12,7 @@ const buttonStyles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 4,
     borderRadius: 50,
-    backgroundColor: vars.black,
+    backgroundColor: vars.black.color,
   },
   btnBgRed: {
     flexDirection: 'row',
@@ -22,7 +22,7 @@ const buttonStyles = StyleSheet.create({
     marginBottom: 4,
     marginLeft: 12,
     borderRadius: 50,
-    backgroundColor: vars.red,
+    backgroundColor: vars.red.color,
   },
   btnIcon: {
     width: 24,
@@ -31,7 +31,7 @@ const buttonStyles = StyleSheet.create({
   },
   btnTxt: {
     fontFamily: 'Inter-Medium',
-    color: vars.white,
+    color: vars.white.color,
   },
 });
 

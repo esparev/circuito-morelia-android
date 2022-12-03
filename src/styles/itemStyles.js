@@ -10,7 +10,7 @@ const itemStyles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
     marginBottom: 4,
-    borderBottomColor: vars.gray200,
+    borderBottomColor: vars.gray200.color,
     borderBottomWidth: 0.5,
   },
   entityInfo: {

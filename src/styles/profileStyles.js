@@ -13,7 +13,7 @@ const profileStyles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 12,
     paddingBottom: 12,
-    borderBottomColor: vars.gray200,
+    borderBottomColor: vars.gray200.color,
     borderBottomWidth: 0.5,
   },
   image: {
@@ -51,13 +51,13 @@ const profileStyles = StyleSheet.create({
     justifyContent: 'center',
     margin: 20,
     borderRadius: 8,
-    backgroundColor: vars.black,
+    backgroundColor: vars.black.color,
   },
   logoutTxt: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
     padding: 8,
-    color: vars.white,
+    color: vars.white.color,
   },
   logoutIcon: {
     width: 24,

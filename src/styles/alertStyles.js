@@ -18,10 +18,10 @@ const alertStyles = StyleSheet.create({
   //   color: white,
   // },
   alertGreen: {
-    backgroundColor: vars.green,
+    backgroundColor: vars.green.color,
   },
   alertRed: {
-    backgroundColor: vars.red,
+    backgroundColor: vars.red.color,
   },
 });
 

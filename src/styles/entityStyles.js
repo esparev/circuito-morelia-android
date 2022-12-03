@@ -10,12 +10,12 @@ const entityStyles = StyleSheet.create({
   entityInfoTitle: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 20,
-    color: vars.black,
+    color: vars.black.color,
   },
   entityTitleH2: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 20,
-    color: vars.black,
+    color: vars.black.color,
   },
   moreEntities: {
     marginTop: 12,

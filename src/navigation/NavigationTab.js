@@ -1,22 +1,23 @@
 import React from 'react';
+import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
 import Units from '../screens/Units';
 import Drivers from '../screens/Drivers';
 import Profile from '../screens/Profile';
-import {Image} from 'react-native';
+import vars from '../styles/vars';
 
 const Tab = createBottomTabNavigator();
 
 export const NavigationTab = () => {
   const tabBarOptions = {
-    headerTitleAlign: 'center',
-    headerTitleStyle: {fontFamily: 'Inter-Medium', fontSize: 16},
+    headerTitleAlign: 'left',
+    headerTitleStyle: {fontFamily: 'Inter-Bold', fontSize: 20},
     headerStyle: {height: 40},
     headerShadowVisible: false,
     headerBackTitleVisible: false,
-    tabBarActiveTintColor: '#222227',
-    tabBarInactiveTintColor: '#5A5A5A',
+    tabBarActiveTintColor: vars.black.color,
+    tabBarInactiveTintColor: vars.gray300.color,
     tabBarStyle: {height: 72},
   };
 
@@ -53,7 +54,6 @@ export const NavigationTab = () => {
         component={Units}
         options={{
           ...tabBarOptions,
-          headerShown: false,
           tabBarIcon: ({focused}) => (
             <Image
               style={tabIconStyles}
@@ -71,7 +71,6 @@ export const NavigationTab = () => {
         component={Drivers}
         options={{
           ...tabBarOptions,
-          headerShown: false,
           tabBarIcon: ({focused}) => (
             <Image
               style={tabIconStyles}

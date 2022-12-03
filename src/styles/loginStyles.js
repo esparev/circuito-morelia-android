@@ -21,12 +21,12 @@ const loginStyles = StyleSheet.create({
   loginTitle: {
     fontFamily: 'Inter-Bold',
     fontSize: 20,
-    color: vars.black,
+    color: vars.black.color,
   },
   loginTxt: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,
-    color: vars.gray200,
+    color: vars.gray200.color,
   },
   loginForm: {
     width: '100%',
@@ -44,17 +44,17 @@ const loginStyles = StyleSheet.create({
     marginBottom: 4,
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
-    color: vars.black,
+    color: vars.black.color,
   },
   loginFormFieldInput: {
     width: '100%',
     padding: 8,
-    borderColor: vars.gray100,
+    borderColor: vars.gray100.color,
     borderWidth: 1.5,
     borderRadius: 8,
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: vars.black,
+    color: vars.black.color,
   },
   // loginFormField--input:focus: {
   //   outline: solid var(--black),
@@ -62,17 +62,17 @@ const loginStyles = StyleSheet.create({
   loginFormFieldErr: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: vars.red,
+    color: vars.red.color,
   },
   loginFormFieldSuccess: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: vars.black,
+    color: vars.black.color,
   },
   loginFormForgot: {
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: vars.red,
+    color: vars.red.color,
   },
   loginFormBtn: {
     width: '100%',
@@ -80,13 +80,13 @@ const loginStyles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 12,
     borderRadius: 8,
-    backgroundColor: vars.black,
+    backgroundColor: vars.black.color,
   },
   loginFormBtnTxt: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
     textAlign: 'center',
-    color: vars.white,
+    color: vars.white.color,
   },
   loginCreateAccount: {
     flexDirection: 'row',
@@ -95,12 +95,12 @@ const loginStyles = StyleSheet.create({
     fontFamily: 'Inter-Medium',
     fontSize: 16,
     textAlign: 'right',
-    color: vars.gray300,
+    color: vars.gray300.color,
   },
   loginFormQuestionBtn: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 16,
-    color: vars.black,
+    color: vars.black.color,
   },
 });
 
