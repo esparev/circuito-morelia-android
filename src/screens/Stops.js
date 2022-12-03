@@ -1,32 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Pressable, Text, View, ScrollView} from 'react-native';
 import StopItem from '../components/StopItem';
+import useGetStops from '../hooks/useGetStops';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
 import stopsStyles from '../styles/stopsStyles';
-import {getStopsApi} from '../api/stops';
+import { envConfig } from '../utils/config';
 
 const Stops = () => {
   const [activeTab, setActiveTab] = useState(true);
-  const [stops, setStops] = useState([]);
+  const stops = useGetStops(envConfig.apiUrl)
 
   const handleTabToggle = () => {
     setActiveTab(!activeTab);
-  };
-
-  useEffect(() => {
-    (async () => {
-      await loadStops();
-    })();
-  }, []);
-
-  const loadStops = async () => {
-    try {
-      const response = await getStopsApi();
-      setStops([...response]);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   /*const stops = [
