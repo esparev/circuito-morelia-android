@@ -5,6 +5,9 @@ const globalStyles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     height: '100%',
   },
+  hero: {
+    margin: 20,
+  },
   h1: {
     fontFamily: 'Inter-Bold',
     fontSize: 24,
@@ -14,6 +17,12 @@ const globalStyles = StyleSheet.create({
   h2: {
     fontFamily: 'Inter-Bold',
     fontSize: 22,
+    color: '#222227',
+    marginBottom: 12,
+  },
+  h3: {
+    fontFamily: 'Inter-SemiBold',
+    fontSize: 18,
     color: '#222227',
     marginBottom: 12,
   },
