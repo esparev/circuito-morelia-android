@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {Pressable, Text, View, ScrollView} from 'react-native';
-import UnitItem from '../components/UnitItem';
+import {Pressable, Text, View, ScrollView, SafeAreaView} from 'react-native';
+import UnitList from '../components/UnitList';
 import useGetUnits from '../hooks/useGetUnits';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
-import stopsStyles from '../styles/stopsStyles';
 import {envConfig} from '../utils/config';
 
 const Units = () => {
@@ -68,7 +67,7 @@ const Units = () => {
   ];*/
 
   return (
-    <ScrollView style={globalStyles.body}>
+    <SafeAreaView style={globalStyles.body}>
       {/* TabBar */}
       <View style={tabBarStyles.tabBar}>
         <Pressable
@@ -107,17 +106,10 @@ const Units = () => {
         </Pressable>
       </View>
 
-      <View style={stopsStyles.stops}>
-        {units.map(unit => (
-          <UnitItem
-            key={unit.number}
-            number={unit.number}
-            // onRoute={unit.onRoute}
-            // location={unit.location}
-          />
-        ))}
+      <View style={globalStyles.hero}>
+        <UnitList units={units} />
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 

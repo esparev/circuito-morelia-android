@@ -1,13 +1,19 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import globalStyles from '../styles/globalStyles';
 import itemStyles from '../styles/itemStyles';
 
 const UnitItem = props => {
-  const {number, onRoute, location} = props;
+  const {unit, onRoute, location} = props;
+  const navigation = useNavigation();
+
+  const goToUnit = () => {
+    navigation.navigate('Unidad', {number: unit.number});
+  };
 
   return (
-    <TouchableOpacity style={itemStyles.entityItem}>
+    <TouchableOpacity style={itemStyles.entityItem} onPress={goToUnit}>
       <View style={itemStyles.entityInfo}>
         {onRoute ? (
           <Image
@@ -21,7 +27,7 @@ const UnitItem = props => {
           />
         )}
         <View style={itemStyles.entityLocationDistance}>
-          <Text style={globalStyles.textRegular}>Unidad {number}</Text>
+          <Text style={globalStyles.textRegular}>Unidad {unit.number}</Text>
           {onRoute ? (
             <Text style={globalStyles.textSmall}>
               En ruta • Cerca de {location}
