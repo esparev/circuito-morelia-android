@@ -9,6 +9,7 @@ import useGetUser from '../hooks/useGetUser';
 import useGetUsers from '../hooks/useGetUsers';
 import globalStyles from '../styles/globalStyles';
 import alertStyles from '../styles/alertStyles';
+import entityStyles from '../styles/entityStyles';
 import {envConfig} from '../utils/config';
 
 const Driver = props => {
@@ -59,7 +60,7 @@ const Driver = props => {
           <Text style={globalStyles.h2}>{driver.name}</Text>
           <Text style={globalStyles.textSmall}>{driver.email}</Text>
         </View>
-        <View>
+        <View style={entityStyles.moreEntities}>
           <Text style={globalStyles.h3}>Más Conductores</Text>
           <DriverList drivers={drivers} />
         </View>

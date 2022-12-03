@@ -12,19 +12,16 @@ const globalStyles = StyleSheet.create({
     fontFamily: 'Inter-Bold',
     fontSize: 24,
     color: '#222227',
-    marginBottom: 12,
   },
   h2: {
     fontFamily: 'Inter-Bold',
     fontSize: 22,
     color: '#222227',
-    marginBottom: 12,
   },
   h3: {
     fontFamily: 'Inter-SemiBold',
     fontSize: 18,
     color: '#222227',
-    marginBottom: 12,
   },
   textRegular: {
     fontFamily: 'Inter-Medium',

@@ -11,6 +11,9 @@ const entityStyles = StyleSheet.create({
     fontSize: 20,
     color: '#000',
   },
+  moreEntities: {
+    marginTop: 12,
+  },
 });
 
 export default entityStyles;

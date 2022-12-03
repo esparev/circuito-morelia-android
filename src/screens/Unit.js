@@ -9,6 +9,7 @@ import useGetUnit from '../hooks/useGetUnit';
 import useGetUnits from '../hooks/useGetUnits';
 import globalStyles from '../styles/globalStyles';
 import alertStyles from '../styles/alertStyles';
+import entityStyles from '../styles/entityStyles';
 import {envConfig} from '../utils/config';
 
 const Unit = props => {
@@ -52,7 +53,7 @@ const Unit = props => {
         <View>
           <Text style={globalStyles.h2}>Unidad {unit.number}</Text>
         </View>
-        <View>
+        <View style={entityStyles.moreEntities}>
           <Text style={globalStyles.h3}>Más Unidades</Text>
           <UnitList units={units} />
         </View>
