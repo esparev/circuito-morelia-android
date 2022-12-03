@@ -6,6 +6,7 @@ const homeStyles = StyleSheet.create({
   },
   mapFilter: {
     flexDirection: 'row',
+    marginTop: 12,
   },
   filterChipInactive: {
     flexDirection: 'row',
@@ -50,7 +51,6 @@ const homeStyles = StyleSheet.create({
   seeMoreBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
   },
   seeMoreTxt: {
     fontFamily: 'Inter-Medium',
@@ -59,6 +59,9 @@ const homeStyles = StyleSheet.create({
   seeMoreIcon: {
     width: 20,
     height: 20,
+  },
+  stops: {
+    marginTop: 12,
   },
 });
 
