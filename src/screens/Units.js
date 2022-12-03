@@ -1,18 +1,21 @@
 import React, {useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Pressable, Text, View, ScrollView} from 'react-native';
 import UnitItem from '../components/UnitItem';
+import useGetUnits from '../hooks/useGetUnits';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
 import stopsStyles from '../styles/stopsStyles';
+import {envConfig} from '../utils/config';
 
 const Units = () => {
   const [activeTab, setActiveTab] = useState(true);
+  const units = useGetUnits(envConfig.apiUrl);
 
   const handleTabToggle = () => {
     setActiveTab(!activeTab);
   };
 
-  const units = [
+  /*const units = [
     {
       number: 101,
       location: 'Tecnológico de Morelia',
@@ -62,10 +65,10 @@ const Units = () => {
       distanceInKm: 5,
       onRoute: false,
     },
-  ];
+  ];*/
 
   return (
-    <View style={globalStyles.body}>
+    <ScrollView style={globalStyles.body}>
       {/* TabBar */}
       <View style={tabBarStyles.tabBar}>
         <Pressable
@@ -109,12 +112,12 @@ const Units = () => {
           <UnitItem
             key={unit.number}
             number={unit.number}
-            onRoute={unit.onRoute}
-            location={unit.location}
+            // onRoute={unit.onRoute}
+            // location={unit.location}
           />
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
