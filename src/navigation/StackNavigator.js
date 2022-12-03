@@ -7,6 +7,10 @@ import Unit from '../screens/Unit';
 
 const Stack = createStackNavigator();
 
+const headerTitleOptions = {
+  headerTitleStyle: {fontFamily: 'Inter-Bold'},
+};
+
 export const HomeStackNavigator = () => {
   return (
     <Stack.Navigator>
@@ -15,7 +19,11 @@ export const HomeStackNavigator = () => {
         component={Home}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="Paradas" component={Stops} />
+      <Stack.Screen
+        name="Paradas"
+        component={Stops}
+        options={headerTitleOptions}
+      />
     </Stack.Navigator>
   );
 };
@@ -24,11 +32,15 @@ export const UnitsStackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Units"
+        name="Unidades"
         component={Units}
-        options={{headerShown: false}}
+        options={headerTitleOptions}
       />
-      <Stack.Screen name="Unidad" component={Unit} />
+      <Stack.Screen
+        name="Unidad"
+        component={Unit}
+        options={headerTitleOptions}
+      />
     </Stack.Navigator>
   );
 };

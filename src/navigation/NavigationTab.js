@@ -49,10 +49,11 @@ const NavigationTab = () => {
         }}
       />
       <Tab.Screen
-        name="Unidades"
+        name="Units"
         component={UnitsStackNavigator}
         options={{
           ...tabBarOptions,
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <Image
               style={tabIconStyles}
