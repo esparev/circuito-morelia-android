@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Pressable, Image, Text, View, SafeAreaView} from 'react-native';
 // import SinglePageHeader from '@components/SinglePageHeader';
 // import AssignDriverModal from '@components/AssignDriverModal';
-// import EditUnitModal from '@components/EditUnitModal';
+import EditUnitModal from '../components/EditUnitModal';
 // import DeleteUnitModal from '@components/DeleteUnitModal';
 import UnitList from '../components/UnitList';
 import useGetUnit from '../hooks/useGetUnit';
@@ -17,38 +17,30 @@ import {envConfig} from '../utils/config';
 const Unit = props => {
   const {route} = props;
   const {auth} = useAuth();
+  const [modalVisible, setModalVisible] = useState(false);
+  const [alert, setAlert] = useState('');
   const unit = useGetUnit(envConfig.apiUrl, route.params.number);
   const allUnits = useGetUnits(envConfig.apiUrl);
   const units = allUnits.filter(otherUnit => otherUnit.number !== unit.number);
 
-  const showAssignModal = () => {
-    const modal = document.querySelector('.assign__modal');
-    modal.classList.add('modal--show');
-  };
-
-  const showEditModal = () => {
-    const modal = document.querySelector('.edit__modal');
-    modal.classList.add('modal--show');
-  };
-
-  const showDeleteModal = () => {
-    const modal = document.querySelector('.delete__modal');
-    modal.classList.add('modal--show');
-  };
-
   return (
     <SafeAreaView style={globalStyles.body}>
-      <View styles={alertStyles.alert}></View>
-
-      {/* <SinglePageHeader
-        info={``}
-        otherEntityName="Conductor"
-        hasExtraButton
-        isDriverBtn
-        onAssign={showAssignModal}
-        onEdit={showEditModal}
-        onDelete={showDeleteModal}
-      /> */}
+      <View style={alertStyles.alert}>
+        {alert ? (
+          <View
+            style={
+              alert === 'success'
+                ? [alertStyles.alertContainer, alertStyles.alertGreen]
+                : [alertStyles.alertContainer, alertStyles.alertRed]
+            }>
+            <Text style={alertStyles.alertMsg}>
+              {alert === 'success'
+                ? '¡Unidad editada exitosamente!'
+                : '¡Ups!, Hubo un error al editar la unidad.'}
+            </Text>
+          </View>
+        ) : null}
+      </View>
 
       <View style={globalStyles.hero}>
         <View>
@@ -56,9 +48,11 @@ const Unit = props => {
             <View>
               <Text style={globalStyles.h2}>Unidad {unit.number}</Text>
             </View>
-            {auth.role === 'hero' || auth.role === 'admin' ? (
+            {auth.user.role === 'hero' || auth.user.role === 'admin' ? (
               <View style={buttonStyles.btnsContainer}>
-                <Pressable style={buttonStyles.btnBgBlack}>
+                <Pressable
+                  style={buttonStyles.btnBgBlack}
+                  onPress={() => setModalVisible(true)}>
                   <Image
                     style={buttonStyles.btnIcon}
                     source={require('../assets/icons/pencil.png')}
@@ -82,8 +76,13 @@ const Unit = props => {
         </View>
       </View>
 
+      <EditUnitModal
+        number={route.params.number}
+        modalVisible={modalVisible}
+        setModalVisible={() => setModalVisible(false)}
+        setAlert={setAlert}
+      />
       {/* <AssignDriverModal number={unit.number} />
-      <EditUnitModal number={unit.number} />
       <DeleteUnitModal number={unit.number} /> */}
     </SafeAreaView>
   );
