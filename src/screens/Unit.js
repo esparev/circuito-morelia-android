@@ -3,7 +3,7 @@ import {Pressable, Image, Text, View, SafeAreaView} from 'react-native';
 // import SinglePageHeader from '@components/SinglePageHeader';
 // import AssignDriverModal from '@components/AssignDriverModal';
 import EditUnitModal from '../components/EditUnitModal';
-// import DeleteUnitModal from '@components/DeleteUnitModal';
+import DeleteUnitModal from '../components/DeleteUnitModal';
 import UnitList from '../components/UnitList';
 import useGetUnit from '../hooks/useGetUnit';
 import useGetUnits from '../hooks/useGetUnits';
@@ -17,8 +17,10 @@ import {envConfig} from '../utils/config';
 const Unit = props => {
   const {route} = props;
   const {auth} = useAuth();
-  const [modalVisible, setModalVisible] = useState(false);
-  const [alert, setAlert] = useState('');
+  const [editModalVisible, setEditModalVisible] = useState(false);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+  const [editAlert, setEditAlert] = useState('');
+  const [deleteAlert, setDeleteAlert] = useState('');
   const unit = useGetUnit(envConfig.apiUrl, route.params.number);
   const allUnits = useGetUnits(envConfig.apiUrl);
   const units = allUnits.filter(otherUnit => otherUnit.number !== unit.number);
@@ -26,17 +28,31 @@ const Unit = props => {
   return (
     <SafeAreaView style={globalStyles.body}>
       <View style={alertStyles.alert}>
-        {alert ? (
+        {editAlert ? (
           <View
             style={
-              alert === 'success'
+              editAlert === 'success'
                 ? [alertStyles.alertContainer, alertStyles.alertGreen]
                 : [alertStyles.alertContainer, alertStyles.alertRed]
             }>
             <Text style={alertStyles.alertMsg}>
-              {alert === 'success'
+              {editAlert === 'success'
                 ? '¡Unidad editada exitosamente!'
                 : '¡Ups!, Hubo un error al editar la unidad.'}
+            </Text>
+          </View>
+        ) : null}
+        {deleteAlert ? (
+          <View
+            style={
+              deleteAlert === 'success'
+                ? [alertStyles.alertContainer, alertStyles.alertGreen]
+                : [alertStyles.alertContainer, alertStyles.alertRed]
+            }>
+            <Text style={alertStyles.alertMsg}>
+              {deleteAlert === 'success'
+                ? '¡Unidad eliminada exitosamente!'
+                : '¡Ups!, Hubo un error al eliminar la unidad.'}
             </Text>
           </View>
         ) : null}
@@ -52,14 +68,16 @@ const Unit = props => {
               <View style={buttonStyles.btnsContainer}>
                 <Pressable
                   style={buttonStyles.btnBgBlack}
-                  onPress={() => setModalVisible(true)}>
+                  onPress={() => setEditModalVisible(true)}>
                   <Image
                     style={buttonStyles.btnIcon}
                     source={require('../assets/icons/pencil.png')}
                   />
                   <Text style={buttonStyles.btnTxt}>Editar</Text>
                 </Pressable>
-                <Pressable style={buttonStyles.btnBgRed}>
+                <Pressable
+                  style={buttonStyles.btnBgRed}
+                  onPress={() => setDeleteModalVisible(true)}>
                   <Image
                     style={buttonStyles.btnIcon}
                     source={require('../assets/icons/trash-bin.png')}
@@ -78,12 +96,17 @@ const Unit = props => {
 
       <EditUnitModal
         number={route.params.number}
-        modalVisible={modalVisible}
-        setModalVisible={() => setModalVisible(false)}
-        setAlert={setAlert}
+        editModalVisible={editModalVisible}
+        setEditModalVisible={() => setEditModalVisible(false)}
+        setEditAlert={setEditAlert}
       />
-      {/* <AssignDriverModal number={unit.number} />
-      <DeleteUnitModal number={unit.number} /> */}
+      <DeleteUnitModal
+        number={route.params.number}
+        deleteModalVisible={deleteModalVisible}
+        setDeleteModalVisible={() => setDeleteModalVisible(false)}
+        setDeleteAlert={setDeleteAlert}
+      />
+      {/* <AssignDriverModal number={unit.number} /> */}
     </SafeAreaView>
   );
 };

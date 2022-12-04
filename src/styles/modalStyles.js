@@ -100,11 +100,14 @@ const modalStyles = StyleSheet.create({
     color: vars.gray300.color,
   },
   modalFormTitle: {
+    fontFamily: 'Inter-SemiBold',
     fontSize: 18,
     textAlign: 'center',
     color: vars.black.color,
   },
   modalFormText: {
+    marginBottom: 20,
+    fontFamily: 'Inter-Regular',
     fontSize: 16,
     color: vars.gray300.color,
   },

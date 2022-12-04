@@ -10,7 +10,7 @@ import modalStyles from '../styles/modalStyles';
 import {envConfig} from '../utils/config';
 
 const EditUnitModal = props => {
-  const {number, modalVisible, setModalVisible, setAlert} = props;
+  const {number, editModalVisible, setEditModalVisible, setEditAlert} = props;
   const navigation = useNavigation();
   const {auth} = useAuth();
 
@@ -18,22 +18,22 @@ const EditUnitModal = props => {
     await axios
       .patch(url, data, config)
       .then(res => {
-        setModalVisible(false);
-        setAlert('success');
+        setEditModalVisible(false);
+        setEditAlert('success');
 
         setTimeout(() => {
-          setAlert('');
+          setEditAlert('');
           setTimeout(() => {
             navigation.navigate('Unidades');
           }, 500);
         }, 3000);
       })
       .catch(error => {
-        setModalVisible(false);
-        setAlert('error');
+        setEditModalVisible(false);
+        setEditAlert('error');
 
         setTimeout(() => {
-          setAlert('');
+          setEditAlert('');
         }, 3000);
       });
   };
@@ -55,14 +55,14 @@ const EditUnitModal = props => {
     <View style={modalStyles.modalView}>
       <Modal
         animationType="slide"
-        visible={modalVisible}
+        visible={editModalVisible}
         transparent={true}
         statusBarTranslucent={true}>
         <View style={modalStyles.editModal}>
           <View style={modalStyles.modalContainer}>
             <View style={modalStyles.modalHeader}>
               <Text style={modalStyles.modalTitle}>Editar Unidad</Text>
-              <Pressable onPress={() => setModalVisible(false)}>
+              <Pressable onPress={() => setEditModalVisible(false)}>
                 <Image
                   style={modalStyles.modalClose}
                   source={require('../assets/icons/close.png')}
