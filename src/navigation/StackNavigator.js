@@ -33,7 +33,7 @@ const StackNavigator = () => {
         options={headerTitleOptions}
       />
       <Stack.Screen
-        name="Unidades"
+        name="Units"
         component={NavigationTab}
         options={headerTitleOptions}
       />
@@ -43,7 +43,7 @@ const StackNavigator = () => {
         options={headerTitleOptions}
       />
       <Stack.Screen
-        name="Conductores"
+        name="Drivers"
         component={NavigationTab}
         options={headerTitleOptions}
       />
