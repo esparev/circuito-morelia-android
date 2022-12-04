@@ -53,10 +53,8 @@ const modalStyles = StyleSheet.create({
     height: 32,
   },
   modalForm: {
-    // display: flex,
     flexDirection: 'column',
     alignItems: 'center',
-    // rowGap: 20,
     margin: 20,
   },
   deleteModalForm: {
@@ -89,6 +87,11 @@ const modalStyles = StyleSheet.create({
     fontFamily: 'Inter-Medium',
     fontSize: 16,
     color: vars.black.color,
+  },
+  modalFormFieldErr: {
+    fontFamily: 'Inter-Medium',
+    fontSize: 16,
+    color: vars.red.color,
   },
   // modalFormFieldInput:focus: {
   //   outline: solid vars.black.color,

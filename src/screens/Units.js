@@ -1,14 +1,43 @@
-import React, {useState} from 'react';
-import {Pressable, Text, View, ScrollView, SafeAreaView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Pressable, Text, Image, View, SafeAreaView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import UnitList from '../components/UnitList';
+import useAuth from '../hooks/useAuth';
 import useGetUnits from '../hooks/useGetUnits';
+import AddUnitModal from '../components/AddUnitModal';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
+import alertStyles from '../styles/alertStyles';
+import buttonStyles from '../styles/buttonStyles';
 import {envConfig} from '../utils/config';
 
 const Units = () => {
+  const {auth} = useAuth();
   const [activeTab, setActiveTab] = useState(true);
+  const [alert, setAlert] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
   const units = useGetUnits(envConfig.apiUrl);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <>
+          {auth.user.role === 'hero' || auth.user.role === 'admin' ? (
+            <Pressable
+              style={buttonStyles.btnBgBlack}
+              onPress={() => setModalVisible(true)}>
+              <Image
+                style={buttonStyles.btnIcon}
+                source={require('../assets/icons/add.png')}
+              />
+              <Text style={buttonStyles.btnTxt}>Agregar</Text>
+            </Pressable>
+          ) : null}
+        </>
+      ),
+    });
+  }, []);
 
   const handleTabToggle = () => {
     setActiveTab(!activeTab);
@@ -106,9 +135,32 @@ const Units = () => {
         </Pressable>
       </View>
 
+      <View style={alertStyles.alert}>
+        {alert ? (
+          <View
+            style={
+              alert === 'success'
+                ? [alertStyles.alertContainer, alertStyles.alertGreen]
+                : [alertStyles.alertContainer, alertStyles.alertRed]
+            }>
+            <Text style={alertStyles.alertMsg}>
+              {alert === 'success'
+                ? '¡Unidad agregada exitosamente!'
+                : '¡Ups!, Hubo un error al agregar la unidad.'}
+            </Text>
+          </View>
+        ) : null}
+      </View>
+
       <View style={globalStyles.hero}>
         <UnitList units={units} />
       </View>
+
+      <AddUnitModal
+        modalVisible={modalVisible}
+        setModalVisible={() => setModalVisible(false)}
+        setAlert={setAlert}
+      />
     </SafeAreaView>
   );
 };
