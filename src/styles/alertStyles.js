@@ -3,7 +3,7 @@ import vars from './vars';
 
 const alertStyles = StyleSheet.create({
   alert: {
-    height: 40,
+    height: 'auto',
     overflow: 'hidden',
   },
   alertContainer: {
@@ -12,11 +12,11 @@ const alertStyles = StyleSheet.create({
     paddingLeft: 12,
     paddingRight: 12,
   },
-  // alertContainer, p: {
-  //   fontSize: 14,
-  //   fontWeight: 500,
-  //   color: white,
-  // },
+  alertMsg: {
+    fontFamily: 'Inter-Medium',
+    fontSize: 14,
+    color: vars.white.color,
+  },
   alertGreen: {
     backgroundColor: vars.green.color,
   },

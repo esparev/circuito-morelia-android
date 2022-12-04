@@ -14,7 +14,7 @@ const homeStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: vars.gray100,
+    borderColor: vars.gray100.color,
     borderRadius: 20,
     paddingTop: 4,
     paddingBottom: 4,
@@ -26,20 +26,20 @@ const homeStyles = StyleSheet.create({
     marginLeft: 4,
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: vars.gray300,
+    color: vars.gray300.color,
   },
   filterIcon: {
     width: 22,
     height: 22,
   },
   filterChipActive: {
-    backgroundColor: vars.black,
+    backgroundColor: vars.black.color,
   },
   filterTxtActive: {
     marginLeft: 4,
     fontFamily: 'Inter-Medium',
     fontSize: 16,
-    color: vars.white,
+    color: vars.white.color,
   },
   closeStops: {
     margin: 20,
@@ -55,7 +55,7 @@ const homeStyles = StyleSheet.create({
   },
   seeMoreTxt: {
     fontFamily: 'Inter-Medium',
-    color: vars.gray300,
+    color: vars.gray300.color,
   },
   seeMoreIcon: {
     width: 20,

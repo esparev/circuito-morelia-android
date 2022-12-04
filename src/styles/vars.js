@@ -5,7 +5,7 @@ const vars = StyleSheet.create({
     color: '#EA0000',
   },
   green: {
-    color: '#00FF00',
+    color: '#008000',
   },
   black: {
     color: '#222227',

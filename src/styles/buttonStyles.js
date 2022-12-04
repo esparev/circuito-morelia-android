@@ -32,6 +32,7 @@ const buttonStyles = StyleSheet.create({
   btnTxt: {
     fontFamily: 'Inter-Medium',
     color: vars.white.color,
+    marginLeft: 4,
   },
 });
 
