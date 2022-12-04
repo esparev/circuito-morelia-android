@@ -19,7 +19,7 @@ const Login = () => {
     await axios
       .post(url, data)
       .then(res => {
-        const user = res.data.user;
+        const user = res.data;
         login(user);
         navigation.navigate('Home');
       })
@@ -43,11 +43,7 @@ const Login = () => {
     <View style={[loginStyles.login, globalStyles.body]}>
       <View style={loginStyles.loginHeader}>
         <View style={loginStyles.loginFigure}>
-          <Image
-            style={loginStyles.loginFigureImg}
-            source={CircuitoMorelia}
-            alt=""
-          />
+          <Image style={loginStyles.loginFigureImg} source={CircuitoMorelia} />
         </View>
         <View>
           <Text style={loginStyles.loginTitle}>
@@ -61,10 +57,7 @@ const Login = () => {
         </View>
       </View>
 
-      <View
-        style={loginStyles.loginForm}
-        // onSubmit={handleSubmit}
-      >
+      <View style={loginStyles.loginForm}>
         <View style={loginStyles.loginFormField}>
           <Text style={loginStyles.loginFormFieldLbl}>Correo electrónico</Text>
           <TextInput
