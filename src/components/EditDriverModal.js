@@ -10,7 +10,7 @@ import modalStyles from '../styles/modalStyles';
 import {envConfig} from '../utils/config';
 
 const EditDriverModal = props => {
-  const {driver, slug, modalVisible, setModalVisible, setAlert} = props;
+  const {driver, slug, editModalVisible, setEditModalVisible, setAlert} = props;
   const navigation = useNavigation();
   const {auth} = useAuth();
 
@@ -18,7 +18,7 @@ const EditDriverModal = props => {
     await axios
       .patch(url, data, config)
       .then(res => {
-        setModalVisible(false);
+        setEditModalVisible(false);
         setAlert('success');
 
         setTimeout(() => {
@@ -29,7 +29,7 @@ const EditDriverModal = props => {
         }, 3000);
       })
       .catch(error => {
-        setModalVisible(false);
+        setEditModalVisible(false);
         setAlert('error');
 
         setTimeout(() => {
@@ -55,14 +55,14 @@ const EditDriverModal = props => {
     <View style={modalStyles.modalView}>
       <Modal
         animationType="slide"
-        visible={modalVisible}
+        visible={editModalVisible}
         transparent={true}
         statusBarTranslucent={true}>
         <View style={modalStyles.editModal}>
           <View style={modalStyles.modalContainer}>
             <View style={modalStyles.modalHeader}>
               <Text style={modalStyles.modalTitle}>Editar Conductor</Text>
-              <Pressable onPress={() => setModalVisible(false)}>
+              <Pressable onPress={() => setEditModalVisible(false)}>
                 <Image
                   style={modalStyles.modalClose}
                   source={require('../assets/icons/close.png')}
