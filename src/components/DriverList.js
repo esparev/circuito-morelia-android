@@ -11,13 +11,6 @@ const DriverList = props => {
       showsVerticalScrollIndicator={false}
       keyExtractor={driver => String(driver.slug)}
       renderItem={({item}) => <DriverItem driver={item} />}
-      ListFooterComponent={
-        <ActivityIndicator
-          size="large"
-          // style={styles.spinner}
-          color="#FFFFFF"
-        />
-      }
     />
   );
 };

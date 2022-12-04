@@ -5,6 +5,7 @@ import {Pressable, Image, Text, View, SafeAreaView} from 'react-native';
 import EditUnitModal from '../components/EditUnitModal';
 import DeleteUnitModal from '../components/DeleteUnitModal';
 import UnitList from '../components/UnitList';
+import DriverList from '../components/DriverList';
 import useGetUnit from '../hooks/useGetUnit';
 import useGetUnits from '../hooks/useGetUnits';
 import useAuth from '../hooks/useAuth';
@@ -22,6 +23,7 @@ const Unit = props => {
   const [editAlert, setEditAlert] = useState('');
   const [deleteAlert, setDeleteAlert] = useState('');
   const unit = useGetUnit(envConfig.apiUrl, route.params.number);
+  const {driver} = useGetUnit(envConfig.apiUrl, route.params.number);
   const allUnits = useGetUnits(envConfig.apiUrl);
   const units = allUnits.filter(otherUnit => otherUnit.number !== unit.number);
 
@@ -88,6 +90,16 @@ const Unit = props => {
             ) : null}
           </View>
         </View>
+        {driver ? (
+          <>
+            {driver.length > 0 ? (
+              <View style={entityStyles.moreEntities}>
+                <Text style={globalStyles.h3}>Conductores de la unidad</Text>
+                <DriverList drivers={driver} />
+              </View>
+            ) : null}
+          </>
+        ) : null}
         <View style={entityStyles.moreEntities}>
           <Text style={globalStyles.h3}>Más Unidades</Text>
           <UnitList units={units} />

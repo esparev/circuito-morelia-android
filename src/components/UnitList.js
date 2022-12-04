@@ -11,13 +11,6 @@ const UnitList = props => {
       showsVerticalScrollIndicator={false}
       keyExtractor={unit => String(unit.number)}
       renderItem={({item}) => <UnitItem unit={item} />}
-      ListFooterComponent={
-        <ActivityIndicator
-          size="large"
-          // style={styles.spinner}
-          color="#FFFFFF"
-        />
-      }
     />
   );
 };
