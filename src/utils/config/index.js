@@ -4,5 +4,5 @@
  * @property {*} apiUrl - url de la api
  */
 export const envConfig = {
-  apiUrl: 'http://localhost:3003/api/v1',
+  apiUrl: 'https://circuito-morelia.up.railway.app/api/v1',
 };
