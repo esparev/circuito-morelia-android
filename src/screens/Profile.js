@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Pressable, Text, View} from 'react-native';
+import {Image, TouchableOpacity, Pressable, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import useAuth from '../hooks/useAuth';
 import globalStyles from '../styles/globalStyles';
@@ -10,8 +10,8 @@ const Profile = () => {
   const navigation = useNavigation();
 
   const logoutUser = () => {
-    logout();
     navigation.navigate('Iniciar Sesión');
+    logout;
   };
 
   return (
@@ -52,13 +52,13 @@ const Profile = () => {
         </View>
       </View>
 
-      <Pressable style={profileStyles.logoutBtn} onPress={logoutUser}>
+      <TouchableOpacity style={profileStyles.logoutBtn} onPress={logoutUser}>
         <Text style={profileStyles.logoutTxt}>Cerrar sesión</Text>
         <Image
           style={profileStyles.logoutIcon}
           source={require('../assets/icons/logout.png')}
         />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };

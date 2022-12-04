@@ -15,11 +15,11 @@ const App = () => {
       {/* StatusBar */}
       <StatusBar backgroundColor="white" barStyle="dark-content" />
 
-      <AuthProvider>
-        <NavigationContainer>
+      <NavigationContainer>
+        <AuthProvider>
           <StackNavigator />
-        </NavigationContainer>
-      </AuthProvider>
+        </AuthProvider>
+      </NavigationContainer>
     </>
   );
 };
