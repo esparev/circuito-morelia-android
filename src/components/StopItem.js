@@ -4,7 +4,7 @@ import globalStyles from '../styles/globalStyles';
 import itemStyles from '../styles/itemStyles';
 
 const StopItem = props => {
-  const {name, distanceInTime, distanceInKm} = props;
+  const {location, distanceInTime, distanceInKm} = props;
 
   return (
     <TouchableOpacity style={itemStyles.entityItem}>
@@ -14,7 +14,7 @@ const StopItem = props => {
           source={require('../assets/icons/map-area.png')}
         />
         <View style={itemStyles.entityLocationDistance}>
-          <Text style={globalStyles.textRegular}>{name}</Text>
+          <Text style={globalStyles.textRegular}>{location}</Text>
           {distanceInTime < 15 ? (
             <Text style={globalStyles.textSmall}>
               Más cerca • {distanceInTime} min de distancia

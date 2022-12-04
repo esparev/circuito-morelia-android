@@ -160,7 +160,7 @@ const Home = () => {
           {stops.map(stop => (
             <StopItem
               key={stop.name}
-              name={stop.name}
+              location={stop.name}
               distanceInTime={stop.distanceInTime}
               distanceInKm={stop.distanceInKm}
             />
