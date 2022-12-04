@@ -29,22 +29,22 @@ const Profile = () => {
           />
         </Pressable>
         <View style={profileStyles.name}>
-          <Text style={globalStyles.h1}>{auth.name}</Text>
+          <Text style={globalStyles.h1}>{auth.user.name}</Text>
         </View>
       </View>
       {/* Info */}
       <View style={profileStyles.infoContainer}>
         <View style={profileStyles.info}>
           <Text style={globalStyles.textSmall}>Nombre</Text>
-          <Text style={globalStyles.textRegular}>{auth.name}</Text>
+          <Text style={globalStyles.textRegular}>{auth.user.name}</Text>
         </View>
         <View style={profileStyles.info}>
           <Text style={globalStyles.textSmall}>Nombre de usuario</Text>
-          <Text style={globalStyles.textRegular}>{auth.slug}</Text>
+          <Text style={globalStyles.textRegular}>{auth.user.slug}</Text>
         </View>
         <View style={profileStyles.info}>
           <Text style={globalStyles.textSmall}>Correo electrónico</Text>
-          <Text style={globalStyles.textRegular}>{auth.email}</Text>
+          <Text style={globalStyles.textRegular}>{auth.user.email}</Text>
         </View>
         <View style={profileStyles.info}>
           <Text style={globalStyles.textSmall}>Contraseña</Text>
