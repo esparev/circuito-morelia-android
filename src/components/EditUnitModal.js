@@ -81,6 +81,7 @@ const EditUnitModal = props => {
                   style={modalStyles.modalFormFieldInput}
                   placeholder="Ingresa el número de la unidad"
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   value={formik.values.number}
                   onChangeText={input => formik.setFieldValue('number', input)}
                 />

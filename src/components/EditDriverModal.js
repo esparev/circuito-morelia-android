@@ -76,6 +76,7 @@ const EditDriverModal = props => {
                   style={modalStyles.modalFormFieldInput}
                   placeholder={driver.name}
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   value={formik.values.name}
                   onChangeText={input => formik.setFieldValue('name', input)}
                 />
@@ -88,6 +89,7 @@ const EditDriverModal = props => {
                   style={modalStyles.modalFormFieldInput}
                   placeholder={driver.email}
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   value={formik.values.email}
                   onChangeText={input => formik.setFieldValue('email', input)}
                 />
@@ -98,6 +100,7 @@ const EditDriverModal = props => {
                   style={modalStyles.modalFormFieldInput}
                   placeholder="••••••"
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   value={formik.values.password}
                   onChangeText={input =>
                     formik.setFieldValue('password', input)

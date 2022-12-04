@@ -64,6 +64,7 @@ const Login = () => {
             style={loginStyles.loginFormFieldInput}
             placeholder="Ingresa tu correo electrónico"
             placeholderTextColor={'#737373'}
+            selectionColor={'#222227'}
             autoCapitalize="none"
             value={formik.values.email}
             onChangeText={input => formik.setFieldValue('email', input)}
@@ -78,6 +79,7 @@ const Login = () => {
             style={loginStyles.loginFormFieldInput}
             placeholder="Ingresa tu contraseña"
             placeholderTextColor={'#737373'}
+            selectionColor={'#222227'}
             autoCapitalize="none"
             secureTextEntry={true}
             value={formik.values.password}

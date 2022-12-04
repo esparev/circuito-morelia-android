@@ -79,6 +79,7 @@ const AddDriverModal = props => {
                   style={modalStyles.modalFormFieldInput}
                   placeholder="Ingrese el nombre del conductor"
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   value={formik.values.name}
                   onChangeText={input => formik.setFieldValue('name', input)}
                 />
@@ -95,6 +96,7 @@ const AddDriverModal = props => {
                   placeholder="Ingrese el correo del conductor"
                   autoCapitalize="none"
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   value={formik.values.email}
                   onChangeText={input => formik.setFieldValue('email', input)}
                 />
@@ -108,6 +110,7 @@ const AddDriverModal = props => {
                   style={modalStyles.modalFormFieldInput}
                   placeholder="Ingrese la contraseña del conductor"
                   placeholderTextColor={'#737373'}
+                  selectionColor={'#222227'}
                   autoCapitalize="none"
                   secureTextEntry={true}
                   value={formik.values.password}
