@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {Image, Pressable, Button, Text, TextInput, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  TouchableOpacity,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import useAuth from '../hooks/useAuth';
 import globalStyles from '../styles/globalStyles';
@@ -69,7 +76,7 @@ const Login = () => {
             value={formik.values.email}
             onChangeText={input => formik.setFieldValue('email', input)}
           />
-          <Text id="email-err" style={loginStyles.loginFormFieldErr}>
+          <Text style={loginStyles.loginFormFieldErr}>
             {formik.errors.email}
           </Text>
         </View>
@@ -97,16 +104,16 @@ const Login = () => {
             ¿Olvidaste tu contraseña?
           </Text>
         </Pressable>
-        <Pressable
+        <TouchableOpacity
           style={loginStyles.loginFormBtn}
           onPress={formik.handleSubmit}>
           <Text style={loginStyles.loginFormBtnTxt}>Iniciar sesión</Text>
-        </Pressable>
+        </TouchableOpacity>
         <View style={loginStyles.loginCreateAccount}>
           <Text style={loginStyles.loginFormQuestion}>
             ¿No tienes una cuenta?{' '}
           </Text>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('Crear Cuenta')}>
             <Text style={loginStyles.loginFormQuestionBtn}>Crear cuenta</Text>
           </Pressable>
         </View>
