@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, Modal, Pressable, Text, TextInput, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import useAuth from '../hooks/useAuth';
 import axios from 'axios';
 import {useFormik} from 'formik';
@@ -10,24 +11,30 @@ import {envConfig} from '../utils/config';
 
 const EditUnitModal = props => {
   const {number, modalVisible, setModalVisible, setAlert} = props;
+  const navigation = useNavigation();
   const {auth} = useAuth();
 
   const editUnit = async (url, data, config) => {
     await axios
       .patch(url, data, config)
       .then(res => {
+        setModalVisible(false);
         setAlert('success');
 
         setTimeout(() => {
           setAlert('');
-        }, 7000);
+          setTimeout(() => {
+            navigation.navigate('Unidades');
+          }, 500);
+        }, 3000);
       })
       .catch(error => {
+        setModalVisible(false);
         setAlert('error');
 
         setTimeout(() => {
           setAlert('');
-        }, 7000);
+        }, 3000);
       });
   };
 
