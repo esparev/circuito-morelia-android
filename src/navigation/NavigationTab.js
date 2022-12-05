@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 export const NavigationTab = () => {
   const {auth} = useAuth();
-  const tabBarOptions = {
+  const screenOptions = {
     headerTitleAlign: 'left',
     headerTitleStyle: {fontFamily: 'Inter-Bold', fontSize: 20},
     headerStyle: {height: 40},
@@ -21,24 +21,19 @@ export const NavigationTab = () => {
     headerBackTitleVisible: false,
     tabBarActiveTintColor: vars.black.color,
     tabBarInactiveTintColor: vars.gray300.color,
-    tabBarStyle: {height: 72},
+    tabBarStyle: {height: 72, paddingBottom: 12, paddingTop: 12},
+    tabBarLabelStyle: {fontFamily: 'Inter-Medium', fontSize: 13},
   };
 
   const tabIconStyles = {width: 32, height: 32};
 
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarLabelStyle: {
-          fontFamily: 'Inter-Regular',
-          fontSize: 13,
-        },
-      }}>
+    <Tab.Navigator>
       <Tab.Screen
         name="Inicio"
         component={Home}
         options={{
-          ...tabBarOptions,
+          ...screenOptions,
           headerShown: false,
           tabBarIcon: ({focused}) => (
             <Image
@@ -56,7 +51,7 @@ export const NavigationTab = () => {
         name="Unidades"
         component={Units}
         options={{
-          ...tabBarOptions,
+          ...screenOptions,
           tabBarIcon: ({focused}) => (
             <Image
               style={tabIconStyles}
@@ -73,7 +68,7 @@ export const NavigationTab = () => {
         name="Conductores"
         component={Drivers}
         options={{
-          ...tabBarOptions,
+          ...screenOptions,
           tabBarIcon: ({focused}) => (
             <Image
               style={tabIconStyles}
@@ -91,15 +86,15 @@ export const NavigationTab = () => {
           name="Admins"
           component={Admins}
           options={{
-            ...tabBarOptions,
+            ...screenOptions,
             headerTitle: 'Administradores',
             tabBarIcon: ({focused}) => (
               <Image
                 style={tabIconStyles}
                 source={
                   focused
-                    ? require('../assets/icons/user-active.png')
-                    : require('../assets/icons/user-inactive.png')
+                    ? require('../assets/icons/admin-active.png')
+                    : require('../assets/icons/admin-inactive.png')
                 }
               />
             ),
@@ -110,7 +105,7 @@ export const NavigationTab = () => {
         name="Perfil"
         component={Profile}
         options={{
-          ...tabBarOptions,
+          ...screenOptions,
           headerShown: false,
           tabBarIcon: ({focused}) => (
             <Image
@@ -127,5 +122,3 @@ export const NavigationTab = () => {
     </Tab.Navigator>
   );
 };
-
-// export default NavigationTab;
