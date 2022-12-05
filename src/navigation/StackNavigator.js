@@ -3,6 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationTab} from './NavigationTab';
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
+import Recovery from '../screens/Recovery';
+import EmailSent from '../screens/EmailSent';
 import Stops from '../screens/Stops';
 import Unit from '../screens/Unit';
 import Driver from '../screens/Driver';
@@ -26,6 +28,20 @@ const StackNavigator = () => {
       <Stack.Screen
         name="Crear Cuenta"
         component={Signup}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Recuperar Contraseña"
+        component={Recovery}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Correo Envíado"
+        component={EmailSent}
         options={{
           headerShown: false,
         }}
