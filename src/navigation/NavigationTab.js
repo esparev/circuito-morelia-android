@@ -1,15 +1,18 @@
 import React from 'react';
 import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import useAuth from '../hooks/useAuth';
 import Home from '../screens/Home';
 import Units from '../screens/Units';
 import Drivers from '../screens/Drivers';
+import Admins from '../screens/Admins';
 import Profile from '../screens/Profile';
 import vars from '../styles/vars';
 
 const Tab = createBottomTabNavigator();
 
 export const NavigationTab = () => {
+  const {auth} = useAuth();
   const tabBarOptions = {
     headerTitleAlign: 'left',
     headerTitleStyle: {fontFamily: 'Inter-Bold', fontSize: 20},
@@ -83,6 +86,26 @@ export const NavigationTab = () => {
           ),
         }}
       />
+      {auth.user.role === 'hero' || auth.user.role === 'admin' ? (
+        <Tab.Screen
+          name="Admins"
+          component={Admins}
+          options={{
+            ...tabBarOptions,
+            headerTitle: 'Administradores',
+            tabBarIcon: ({focused}) => (
+              <Image
+                style={tabIconStyles}
+                source={
+                  focused
+                    ? require('../assets/icons/user-active.png')
+                    : require('../assets/icons/user-inactive.png')
+                }
+              />
+            ),
+          }}
+        />
+      ) : null}
       <Tab.Screen
         name="Perfil"
         component={Profile}

@@ -8,6 +8,7 @@ import EmailSent from '../screens/EmailSent';
 import Stops from '../screens/Stops';
 import Unit from '../screens/Unit';
 import Driver from '../screens/Driver';
+import Admin from '../screens/Admin';
 
 const Stack = createStackNavigator();
 
@@ -74,6 +75,16 @@ const StackNavigator = () => {
       <Stack.Screen
         name="Conductor"
         component={Driver}
+        options={headerTitleOptions}
+      />
+      <Stack.Screen
+        name="Admins"
+        component={NavigationTab}
+        options={headerTitleOptions}
+      />
+      <Stack.Screen
+        name="Administrador"
+        component={Admin}
         options={headerTitleOptions}
       />
     </Stack.Navigator>
