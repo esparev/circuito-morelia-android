@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {WebView} from 'react-native-webview';
 import StopItem from '../components/StopItem';
 import globalStyles from '../styles/globalStyles';
 import tabBarStyles from '../styles/tabBarStyles';
@@ -41,7 +42,6 @@ const Home = () => {
 
   return (
     <View style={globalStyles.body}>
-
       {/* TabBar */}
       <View style={tabBarStyles.tabBar}>
         <Pressable
@@ -134,8 +134,22 @@ const Home = () => {
           </Pressable>
         </View>
 
-        <Pressable>
-          <Image />
+        <Pressable style={homeStyles.map}>
+          <WebView
+            style={{width: '100%', height: 410}}
+            source={{
+              html: `<iframe
+              title="map"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight="0"
+              marginWidth="0"
+              style="filter: grayscale(1) contrast(1.2) opacity(0.7); border-radius: 20px;"
+              src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=morelia&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>`,
+            }}
+          />
         </Pressable>
       </View>
 

@@ -9,6 +9,11 @@ const homeStyles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 12,
   },
+  map: {
+    width: '100%',
+    height: 400,
+    marginTop: 12,
+  },
   filterChipInactive: {
     flexDirection: 'row',
     justifyContent: 'center',
