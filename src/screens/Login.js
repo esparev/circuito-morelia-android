@@ -42,7 +42,7 @@ const Login = () => {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: data => {
-      loginUser(`${envConfig.apiUrl}/auth/iniciar-sesion`, data);
+      loginUser(`${envConfig.apiUrl}/auth/login`, data);
     },
   });
 
@@ -99,7 +99,7 @@ const Login = () => {
             {error ? 'El correo o la contraseña son incorrectos' : null}
           </Text>
         </View>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate('Recuperar Contraseña')}>
           <Text style={loginStyles.loginFormForgot}>
             ¿Olvidaste tu contraseña?
           </Text>
