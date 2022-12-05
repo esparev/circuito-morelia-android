@@ -145,7 +145,7 @@ const validationSchema = () => {
     email: Yup.string()
       .email('Ingrese un correo válido')
       .required('Por favor ingrese un correo'),
-    password: Yup.string().required('Por favor ingrese un contraseña'),
+    password: Yup.string().required('Por favor ingrese una contraseña'),
   };
 };
 
