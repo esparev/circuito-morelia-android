@@ -64,7 +64,6 @@ const modalStyles = StyleSheet.create({
   modalFormField: {
     width: '90%',
     flexDirection: 'column',
-    marginBottom: 20,
   },
   modalFormFieldLbl: {
     width: '100%',
