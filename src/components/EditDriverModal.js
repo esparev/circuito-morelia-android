@@ -10,7 +10,7 @@ import modalStyles from '../styles/modalStyles';
 import {envConfig} from '../utils/config';
 
 const EditDriverModal = props => {
-  const {driver, slug, editModalVisible, setEditModalVisible, setAlert} = props;
+  const {driver, slug, editModalVisible, setEditModalVisible, setEditAlert} = props;
   const navigation = useNavigation();
   const {auth} = useAuth();
 
@@ -19,10 +19,10 @@ const EditDriverModal = props => {
       .patch(url, data, config)
       .then(res => {
         setEditModalVisible(false);
-        setAlert('success');
+        setEditAlert('success');
 
         setTimeout(() => {
-          setAlert('');
+          setEditAlert('');
           setTimeout(() => {
             navigation.navigate('Conductores');
           }, 500);
@@ -30,10 +30,10 @@ const EditDriverModal = props => {
       })
       .catch(error => {
         setEditModalVisible(false);
-        setAlert('error');
+        setEditAlert('error');
 
         setTimeout(() => {
-          setAlert('');
+          setEditAlert('');
         }, 3000);
       });
   };
