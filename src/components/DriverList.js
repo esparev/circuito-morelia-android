@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, ActivityIndicator} from 'react-native';
+import {FlatList} from 'react-native';
 import DriverItem from './DriverItem';
 
 const DriverList = props => {
