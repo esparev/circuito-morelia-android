@@ -11,7 +11,6 @@ import {envConfig} from '../utils/config';
 
 const EditAdminModal = props => {
   const {admin, slug, editModalVisible, setEditModalVisible, setEditAlert} = props;
-  console.log(slug);
   const navigation = useNavigation();
   const {auth} = useAuth();
 
@@ -44,7 +43,6 @@ const EditAdminModal = props => {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: data => {
-      console.log(data);
       editAdmin(`${envConfig.apiUrl}/users/${slug}`, data, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
