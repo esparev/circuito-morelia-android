@@ -9,7 +9,7 @@ const AdminItem = props => {
   const navigation = useNavigation();
 
   const goToAdmin = () => {
-    navigation.navigate('Administrador', {slug: admin.slug});
+    navigation.push('Administrador', {slug: admin.slug});
   };
 
   return (

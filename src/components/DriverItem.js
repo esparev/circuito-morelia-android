@@ -9,7 +9,7 @@ const DriverItem = props => {
   const navigation = useNavigation();
 
   const goToDriver = () => {
-    navigation.navigate('Conductor', {slug: driver.slug});
+    navigation.push('Conductor', {slug: driver.slug});
   };
 
   return (

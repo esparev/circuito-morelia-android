@@ -9,7 +9,7 @@ const UnitItem = props => {
   const navigation = useNavigation();
 
   const goToUnit = () => {
-    navigation.navigate('Unidad', {number: unit.number});
+    navigation.push('Unidad', {number: unit.number});
   };
 
   return (
