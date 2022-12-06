@@ -64,7 +64,7 @@ const AddDriverModal = props => {
         <View style={modalStyles.editModal}>
           <View style={modalStyles.modalContainer}>
             <View style={modalStyles.modalHeader}>
-              <Text style={modalStyles.modalTitle}>Agregar Unidad</Text>
+              <Text style={modalStyles.modalTitle}>Agregar Conductor</Text>
               <Pressable onPress={() => setModalVisible(false)}>
                 <Image
                   style={modalStyles.modalClose}
@@ -94,9 +94,9 @@ const AddDriverModal = props => {
                 <TextInput
                   style={modalStyles.modalFormFieldInput}
                   placeholder="Ingrese el correo del conductor"
-                  autoCapitalize="none"
                   placeholderTextColor={'#737373'}
                   selectionColor={'#222227'}
+                  autoCapitalize="none"
                   value={formik.values.email}
                   onChangeText={input => formik.setFieldValue('email', input)}
                 />
@@ -125,7 +125,7 @@ const AddDriverModal = props => {
               <Pressable
                 style={buttonStyles.btnBgBlack}
                 onPress={formik.handleSubmit}>
-                <Text style={buttonStyles.btnTxt}>Agregar Unidad</Text>
+                <Text style={buttonStyles.btnTxt}>Agregar Conductor</Text>
               </Pressable>
             </View>
           </View>

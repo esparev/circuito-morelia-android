@@ -94,9 +94,9 @@ const AddAdminModal = props => {
                 <TextInput
                   style={modalStyles.modalFormFieldInput}
                   placeholder="Ingrese el correo del admin"
-                  autoCapitalize="none"
                   placeholderTextColor={'#737373'}
                   selectionColor={'#222227'}
+                  autoCapitalize="none"
                   value={formik.values.email}
                   onChangeText={input => formik.setFieldValue('email', input)}
                 />

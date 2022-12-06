@@ -92,6 +92,7 @@ const EditAdminModal = props => {
                   placeholder={admin.email}
                   placeholderTextColor={'#737373'}
                   selectionColor={'#222227'}
+                  autoCapitalize="none"
                   value={formik.values.email}
                   onChangeText={input => formik.setFieldValue('email', input)}
                 />
@@ -103,6 +104,7 @@ const EditAdminModal = props => {
                   placeholder="••••••"
                   placeholderTextColor={'#737373'}
                   selectionColor={'#222227'}
+                  autoCapitalize="none"
                   value={formik.values.password}
                   onChangeText={input =>
                     formik.setFieldValue('password', input)
