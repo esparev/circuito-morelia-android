@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  ActivityIndicator,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import globalStyles from '../styles/globalStyles';
@@ -19,6 +20,7 @@ import CircuitoMorelia from '../assets/imgs/Circuito_Morelia.png';
 
 const Signup = () => {
   const [error, setError] = useState(false);
+  const [signing, setSigning] = useState(false);
   const navigation = useNavigation();
 
   const signup = async (url, data) => {
@@ -27,11 +29,11 @@ const Signup = () => {
       .then(res => {
         const user = res.data;
         navigation.navigate('Iniciar Sesión');
+        setSigning(false);
       })
       .catch(error => {
-        if (error) {
-          setError(true);
-        }
+        setError(true);
+        setSigning(false);
       });
   };
 
@@ -40,6 +42,7 @@ const Signup = () => {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: data => {
+      setSigning(true);
       const regex = /\s+/g;
       data.slug = slugify(data.name.replace(regex, '-'), {lower: true});
       signup(`${envConfig.apiUrl}/users`, data);
@@ -108,14 +111,27 @@ const Signup = () => {
           <Text style={loginStyles.loginFormFieldErr}>
             {formik.errors.password}
           </Text>
-          <Text style={loginStyles.loginFormFieldErr}>
-            {error ? 'Hubo un error al crear tu cuenta' : null}
-          </Text>
+          {error ? (
+            <Text style={loginStyles.loginFormFieldErr}>
+              Hubo un error al crear tu cuenta
+            </Text>
+          ) : null}
         </View>
         <TouchableOpacity
           style={loginStyles.loginFormBtn}
           onPress={formik.handleSubmit}>
-          <Text style={loginStyles.loginFormBtnTxt}>Crear cuenta</Text>
+          <View style={loginStyles.loginFormBtnProcess}>
+            {signing ? (
+              <View style={loginStyles.loginFormBtnProcess}>
+                <View style={loginStyles.loginSpinner}>
+                  <ActivityIndicator color="#ffffff" />
+                </View>
+                <Text style={loginStyles.loginFormBtnTxt}>Procesando...</Text>
+              </View>
+            ) : (
+              <Text style={loginStyles.loginFormBtnTxt}>Crear cuenta</Text>
+            )}
+          </View>
         </TouchableOpacity>
         <View style={loginStyles.loginCreateAccount}>
           <Text style={loginStyles.loginFormQuestion}>

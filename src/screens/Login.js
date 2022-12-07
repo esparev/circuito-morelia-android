@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  ActivityIndicator,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import useAuth from '../hooks/useAuth';
@@ -19,6 +20,7 @@ import CircuitoMorelia from '../assets/imgs/Circuito_Morelia.png';
 
 const Login = () => {
   const [error, setError] = useState(false);
+  const [logging, setLogging] = useState(false);
   const {login} = useAuth();
   const navigation = useNavigation();
 
@@ -29,11 +31,11 @@ const Login = () => {
         const user = res.data;
         login(user);
         navigation.navigate('Home');
+        setLogging(false);
       })
       .catch(error => {
-        if (error) {
-          setError(true);
-        }
+        setError(true);
+        setLogging(false);
       });
   };
 
@@ -42,6 +44,7 @@ const Login = () => {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: data => {
+      setLogging(true);
       loginUser(`${envConfig.apiUrl}/auth/login`, data);
     },
   });
@@ -95,9 +98,11 @@ const Login = () => {
           <Text style={loginStyles.loginFormFieldErr}>
             {formik.errors.password}
           </Text>
-          <Text style={loginStyles.loginFormFieldErr}>
-            {error ? 'El correo o la contraseña son incorrectos' : null}
-          </Text>
+          {error ? (
+            <Text style={loginStyles.loginFormFieldErr}>
+              El correo o la contraseña son incorrectos
+            </Text>
+          ) : null}
         </View>
         <Pressable onPress={() => navigation.navigate('Recuperar Contraseña')}>
           <Text style={loginStyles.loginFormForgot}>
@@ -107,7 +112,18 @@ const Login = () => {
         <TouchableOpacity
           style={loginStyles.loginFormBtn}
           onPress={formik.handleSubmit}>
-          <Text style={loginStyles.loginFormBtnTxt}>Iniciar sesión</Text>
+          <View style={loginStyles.loginFormBtnProcess}>
+            {logging ? (
+              <View style={loginStyles.loginFormBtnProcess}>
+                <View style={loginStyles.loginSpinner}>
+                  <ActivityIndicator color="#ffffff" />
+                </View>
+                <Text style={loginStyles.loginFormBtnTxt}>Procesando...</Text>
+              </View>
+            ) : (
+              <Text style={loginStyles.loginFormBtnTxt}>Iniciar sesión</Text>
+            )}
+          </View>
         </TouchableOpacity>
         <View style={loginStyles.loginCreateAccount}>
           <Text style={loginStyles.loginFormQuestion}>

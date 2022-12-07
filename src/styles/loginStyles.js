@@ -88,6 +88,15 @@ const loginStyles = StyleSheet.create({
     textAlign: 'center',
     color: vars.white.color,
   },
+  loginSpinner: {
+    marginRight: 4,
+  },
+  loginFormBtnProcess: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   loginCreateAccount: {
     flexDirection: 'row',
   },

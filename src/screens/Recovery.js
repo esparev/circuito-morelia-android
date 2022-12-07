@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  ActivityIndicator,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import globalStyles from '../styles/globalStyles';
@@ -18,6 +19,7 @@ import CircuitoMorelia from '../assets/imgs/Circuito_Morelia.png';
 
 const Recovery = () => {
   const [error, setError] = useState(false);
+  const [recovery, setRecovery] = useState(false);
   const navigation = useNavigation();
 
   const recover = async (url, data) => {
@@ -25,9 +27,11 @@ const Recovery = () => {
       .post(url, data)
       .then(res => {
         navigation.navigate('Correo Envíado');
+        setRecovery(false);
       })
       .catch(error => {
         setError(true);
+        setRecovery(false);
       });
   };
 
@@ -36,6 +40,7 @@ const Recovery = () => {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: data => {
+      setRecovery(true);
       recover(`${envConfig.apiUrl}/auth/recover`, data);
     },
   });
@@ -71,16 +76,29 @@ const Recovery = () => {
           <Text style={loginStyles.loginFormFieldErr}>
             {formik.errors.email}
           </Text>
-          <Text style={loginStyles.loginFormFieldErr}>
-            {error
-              ? 'Hubo un error al recuperar tu contraseña, inténtalo más tarde'
-              : null}
-          </Text>
+          {error ? (
+            <Text style={loginStyles.loginFormFieldErr}>
+              Hubo un error al recuperar tu contraseña, inténtalo más tarde
+            </Text>
+          ) : null}
         </View>
         <TouchableOpacity
           style={loginStyles.loginFormBtn}
           onPress={formik.handleSubmit}>
-          <Text style={loginStyles.loginFormBtnTxt}>Recuperar contraseña</Text>
+          <View style={loginStyles.loginFormBtnProcess}>
+            {recovery ? (
+              <View style={loginStyles.loginFormBtnProcess}>
+                <View style={loginStyles.loginSpinner}>
+                  <ActivityIndicator color="#ffffff" />
+                </View>
+                <Text style={loginStyles.loginFormBtnTxt}>Procesando...</Text>
+              </View>
+            ) : (
+              <Text style={loginStyles.loginFormBtnTxt}>
+                Recuperar contraseña
+              </Text>
+            )}
+          </View>
         </TouchableOpacity>
         <View style={loginStyles.loginCreateAccount}>
           <Text style={loginStyles.loginFormQuestion}>Regresar a </Text>
